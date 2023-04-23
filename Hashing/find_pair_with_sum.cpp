@@ -11,26 +11,27 @@ using namespace std;
 int main()
 {
     fastio;
+    unordered_map<int,int> m;
     int n;
     cin>>n;
     vector<int> arr(n);
-    unordered_map<int,int> hash;
     for(int i=0;i<n;i++)
     {
         cin>>arr[i];
-        hash[arr[i]]++;
+        m[arr[i]]++;
     }
-    int q;
-    cin>>q;
-    while(q--)
+    int x,flag=0;
+    cin>>x;
+    for(int i=0;i<n;i++)
     {
-        int x;
-        cin >> x;
-        if (hash[x])
-            cout << "True"<<endl;
-        else
-            cout << "False"<<endl;
+        if(m.find(x-arr[i])!=m.end())
+        {
+            flag=1;
+            cout<<"true"<<endl;
+            break;
+        }
     }
-    
+    if(!flag)
+    cout<<"false"<<endl;
     return 0;
 }
