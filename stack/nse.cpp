@@ -31,13 +31,13 @@ int main()
         {
             while(!nse_st.empty() && arr[i]<arr[nse_st.top()])
             {
-                nse[nse_st.top()] = arr[i];
+                nse[nse_st.top()] = i;
                 nse_st.pop();
             }
             nse_st.push(i);
         }
     }
-    while(nse_st.empty())
+    while(!nse_st.empty())
     {
         nse[nse_st.top()] = -1;
         nse_st.pop();
